@@ -1,0 +1,87 @@
+/* Reset for the entire body and HTML */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevents scrolling */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+/* Container for centered content */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Text color */
+    text-align: center; /* Center text */
+    backdrop-filter: blur(10px); /* Soft background effect for the container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+}
+
+/* Header style */
+.header {
+    margin-bottom: 30px; /* Space below the header */
+}
+
+/* Style for social media links */
+.social-media {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.social-icon {
+    padding: 15px 25px; /* Larger padding */
+    border-radius: 10px; /* More rounded corners */
+    text-decoration: none; /* No underline */
+    color: white; /* Text color */
+    background-color: transparent; /* Make background transparent */
+    border: 2px solid transparent; /* Optional: transparent border */
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Optimize transitions */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Remove shadow */
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Enlarge on hover */
+    filter: brightness(0.9); /* Slightly dim */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Background effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.gif') center center/cover no-repeat; /* Background image */
+    z-index: -1;
+    filter: blur(4px); /* Stronger blur effect */
+}
+
+/* Effect for the mouse pointer */
+.cursor-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8); /* White with higher transparency */
+    pointer-events: none; /* Prevents the element from receiving mouse events */
+    z-index: 1000; /* Ensures it is above everything else */
+    transition: transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955), opacity 0.4s ease-out; /* Smoother transitions */
+    transform: scale(0); /* Initial state: Invisible */
+    opacity: 0; /* Initial state: Invisible */
+}
+
+/* Animation on hover */
+.cursor-effect.active {
+    transform: scale(3); /* Larger cursor effect */
+    opacity: 0; /* Faster blink effect */
+}
